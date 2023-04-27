@@ -72,7 +72,7 @@ const deleteReview = async(idToDelete: string) => {
       <AnimatePresence>
       <motion.div
       layout
-       className='flex flex-col gap-10'>
+       className='flex flex-col gap-10 mb-28'>
        {displayReviews()}
       </motion.div>
       </AnimatePresence>

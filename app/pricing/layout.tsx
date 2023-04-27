@@ -11,7 +11,7 @@ export default async function Layout({children}: {
     const session = await getServerSession(authOptions);
 
     return (
-        <main className='pt-28'>
+        <main className='md:pt-28 pt-24'>
             <div className='flex gap-4'>
                 <ContactButton />
                 {session?.user && (

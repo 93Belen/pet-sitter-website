@@ -27,10 +27,13 @@ export default async function RootLayout({
 
 
   return (
-    <html lang="en" className={`${montserrat.variable} p-10`}>
+    <html lang="en" className={`${montserrat.variable} md:p-10 p-2 overflow-x-hidden`}>
          <body className='p-10'>
            <Nav user={session?.user} expires={session?.expires as string} />
            {children}
+           <footer className='bg-mytheme text-white w-screen h-[200px] md:ml-[-5rem] md:mb-[-5rem] ml-[-3rem] mb-[-3rem]'>
+
+          </footer>
            </body>
     </html>
   )

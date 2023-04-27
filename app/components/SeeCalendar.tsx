@@ -58,8 +58,8 @@ export default function SeeCalendar() {
                     animate={{right: 0, opacity: 1}}
                     exit={{right: -250, opacity: 0}}
                     transition={{ease: "linear", duration: 0.4}}
-                    className={`absolute bg-mygray md:w-3/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-evenly p-10`}>
-                    <IoClose className='text-3xl' onClick={hideForm} />
+                    className={`fixed bg-mygray md:w-2/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-evenly p-10`}>
+                    <IoClose className='text-4xl' onClick={hideForm} />
                     <div className='m-auto gap-5 flex flex-col'>
                     <div className='flex gap-5'>
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">

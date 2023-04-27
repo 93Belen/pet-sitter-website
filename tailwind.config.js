@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        contactbutton: {
+          '0%, 100%': { background: '#4BC9AB' },
+          '50%': { background: '#79ECD0' },
+        }
+      },
+      animation: {
+        contactbutton: 'contactbutton 5s linear infinite'
+      },
       fontFamily: {
         sans: ['var(--font-mont)']
       },

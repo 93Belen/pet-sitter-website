@@ -6,9 +6,11 @@ import { useState } from "react"
 import { CiMenuKebab } from 'react-icons/ci'
 import { IoClose } from "react-icons/io5"
 import { AnimatePresence, motion } from "framer-motion"
+import { usePathname } from 'next/navigation';
 
 
 export default function Nav({user}: Session) {
+    const pathname = usePathname();
     const [showMenu, setShowMenu] = useState(false)
     const openMenu = () => {
         setShowMenu(true)
@@ -18,7 +20,7 @@ export default function Nav({user}: Session) {
     }
     
     return (
-        <nav className='flex justify-end w-full list-none'>
+        <nav className='flex justify-end w-full list-none text-xl'>
             <div className='md:hidden'>
             <CiMenuKebab
             className='h-9 w-auto'
@@ -49,9 +51,21 @@ export default function Nav({user}: Session) {
       </AnimatePresence>
             </div>
             <div className='md:flex justify-around w-3/6 hidden'>
-            <Link href='/' className='hover:text-mytheme duration-1000'>Home</Link>
-            <Link href='/reviews' className='hover:text-mytheme duration-1000'>Reviews</Link>
-            <Link href='/pricing' className='hover:text-mytheme duration-1000'>Pricing </Link>
+            <Link href='/' className={`hover:text-mytheme duration-1000 ${
+                  pathname === '/'
+                  ? "text-mytheme font-bold"
+                  : "text-black"
+                }`}>Home</Link>
+            <Link href='/reviews' className={`hover:text-mytheme duration-1000 ${
+                  pathname === '/reviews'
+                  ? "text-mytheme font-bold"
+                  : "text-black"
+                }`}>Reviews</Link>
+            <Link href='/pricing' className={`hover:text-mytheme duration-1000 ${
+                  pathname === '/pricing'
+                  ? "text-mytheme font-bold"
+                  : "text-black"
+                }`}>Pricing </Link>
             {!user && (
                  <li className='hover:text-mytheme duration-1000' onClick={() => signIn()}>Sign In</li>
                 )}
