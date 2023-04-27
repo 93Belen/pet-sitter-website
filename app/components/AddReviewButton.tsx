@@ -7,7 +7,16 @@ import { useState } from 'react';
 export default function AddReviewButton() {
     const [show, setShow] = useState(false);
     const [myReview, setMyReview] = useState('')
-
+    
+    const addReview = async() => {
+        const res = await fetch('api/reviews/add', {
+            method: 'POST',
+            body: JSON.stringify({myReview})
+        })
+        const jsonRes = await res.json()
+        setShow(false)
+        return jsonRes
+    }
 
     const hideForm = () => {
         setShow(false)
@@ -28,8 +37,8 @@ export default function AddReviewButton() {
             transition={{ease: "linear", duration: 0.4}}
             className={`absolute bg-mygray md:w-3/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-around p-10`}>
             <IoClose className='text-3xl' onClick={hideForm} />
-            <textarea maxLength={150}  className='rounded-lg p-7' cols={10} rows={12} name="description" id="description" />
-            <button className='bg-mytheme py-3 px-6 rounded-full w-fit'>Answer</button>
+            <textarea onChange={reviewOnChange} maxLength={150}  className='rounded-lg p-7' cols={10} rows={12} name="description" id="description" />
+            <button onClick={addReview} className='bg-mytheme py-3 px-6 rounded-full w-fit'>Answer</button>
           </motion.div>
           )}       
         </AnimatePresence>
