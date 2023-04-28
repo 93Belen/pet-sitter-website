@@ -63,13 +63,13 @@ export default function SeeCalendar() {
                     <div className='m-auto gap-5 flex flex-col'>
                     <div className='flex gap-5'>
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12.5" cy="12.5" r="10.5" stroke="#C94B4B" stroke-width="4"/>
+                        <circle cx="12.5" cy="12.5" r="10.5" stroke="#C94B4B" strokeWidth="4"/>
                         </svg>
                         <p> Half Day</p>
                     </div>
                     <div className='flex gap-5'>
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12.5" cy="12.5" r="10.5" stroke="#4BC9AB" stroke-width="4"/>
+                        <circle cx="12.5" cy="12.5" r="10.5" stroke="#4BC9AB" strokeWidth="4"/>
                         </svg>
                         <p> All Day</p>
                     </div>

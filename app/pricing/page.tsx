@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 
 
@@ -32,7 +32,11 @@ const updatePricing = () => {
   })
 }
 
-updatePricing()
+useEffect(() => {
+  updatePricing()
+})
+
+
 
 
     return (
