@@ -15,20 +15,22 @@ export default function Home() {
       let revealtop = reveals[i].getBoundingClientRect().top;
       let revealpoint = 120;
       if(revealtop < windowheight - revealpoint){
-        if(reveals[i].id === 'nine-element'){
-          document.getElementById(`${reveals[i].id}`).style.opacity = '1';
-          document.getElementById(`${reveals[i].id}`).style.transitionDuration = '2.5s'
-        }
-        else {
-          document.getElementById(`${reveals[i].id}`).style.transform = 'translateY(0px)'
-          document.getElementById(`${reveals[i].id}`).style.opacity = '1';
-          document.getElementById(`${reveals[i].id}`).style.transitionDuration = '2.5s'
-        }
+        document.getElementById(`${reveals[i].id}`).style.transform = 'translateX(0px)'
+        document.getElementById(`${reveals[i].id}`).style.opacity = '1';
+        document.getElementById(`${reveals[i].id}`).style.transitionDuration = '4s'
       }
       else{
-        document.getElementById(`${reveals[i].id}`).style.transform = 'translateY(120px)'
+        if(reveals[i].id === 'second-block-text'){
+          document.getElementById(`${reveals[i].id}`).style.transform = 'translateX(-120px)'
         document.getElementById(`${reveals[i].id}`).style.opacity = '0';
-        document.getElementById(`${reveals[i].id}`).style.transitionDuration = '2.5s'
+        document.getElementById(`${reveals[i].id}`).style.transitionDuration = '4s'
+        } 
+        else {
+          document.getElementById(`${reveals[i].id}`).style.transform = 'translateX(120px)'
+          document.getElementById(`${reveals[i].id}`).style.opacity = '0';
+          document.getElementById(`${reveals[i].id}`).style.transitionDuration = '4s'
+        }
+        
       }
     }
   }
@@ -46,7 +48,7 @@ export default function Home() {
 
 
   return (
-    <main className='md:pt-28 pt-24 text-2xl md:text-xl h-fit'>
+    <main className='md:pt-28 pt-20 text-2xl md:text-xl h-fit'>
      <div className='md:flex justify-evenly gap-5 md:h-[70vh]'>
       <div className='md:w-[40vw]'>
         <Image alt='' width={1000} height={1000} src={require('../public/pic1.png')} />
@@ -65,7 +67,7 @@ export default function Home() {
       </div>
      </div>
      <div className='md:flex justify-evenly gap-5 md:h-[70vh]'>
-     <div id='second-block-text' className='md:pt-12 md:w-[40vw] reveal'>
+     <div id='second-block-text' className='md:pt-12 md:w-[40vw] reveal opacity-0'>
        <p>
        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -77,7 +79,7 @@ export default function Home() {
        </p>
      </div>
      <div className='md:w-[30vw]'>
-     <Image className='reveal' id='second-img' alt='' width={1000} height={1000} src={require('../public/pic2.png')} />
+     <Image className='reveal opacity-0' id='second-img' alt='' width={1000} height={1000} src={require('../public/pic2.png')} />
      </div>
      </div>
     </main>

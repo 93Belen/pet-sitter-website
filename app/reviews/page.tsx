@@ -1,8 +1,9 @@
 "use client"
 
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import {motion, AnimatePresence} from 'framer-motion'
+import Loading from "./loading";
 
 
 type review = {
@@ -47,7 +48,7 @@ const deleteReview = async(idToDelete: string) => {
   const displayReviews = () => {
     const arr = [];
     reviews?.forEach(review => {
-      arr.push(
+      arr.unshift(
         <motion.div layout key={review.id} className='p-6 bg-mygray rounded-lg flex flex-col gap-5'>
          <h2>{review.user}</h2>
          <p>{review.text}</p>
@@ -73,7 +74,9 @@ const deleteReview = async(idToDelete: string) => {
       <motion.div
       layout
        className='flex flex-col gap-10 mb-28'>
+         <Suspense fallback={<Loading />}>
        {displayReviews()}
+        </Suspense>
       </motion.div>
       </AnimatePresence>
     )

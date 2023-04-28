@@ -36,7 +36,7 @@ updatePricing()
 
 
     return (
-      <main className='flex md:flex-row flex-col gap-10 h-[40vh] mb-28'>
+      <main className='flex md:flex-row flex-col gap-10 md:h-[40vh] mb-28 pb-28 md:pb-0'>
        <div className='p-6 bg-mygray rounded-lg flex flex-col gap-5'>
          <h2 className='font-bold text-xl'>Half Day</h2>
          <p>{halfDayInfo?.description}</p>

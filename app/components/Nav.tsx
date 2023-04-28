@@ -7,6 +7,7 @@ import { CiMenuKebab } from 'react-icons/ci'
 import { IoClose } from "react-icons/io5"
 import { AnimatePresence, motion } from "framer-motion"
 import { usePathname } from 'next/navigation';
+import Logo from "./Logo"
 
 
 export default function Nav({user}: Session) {
@@ -20,7 +21,9 @@ export default function Nav({user}: Session) {
     }
     
     return (
-        <nav className='flex justify-end w-full list-none text-xl'>
+        <header className='flex justify-between w-full align-middle'>
+            <Logo />
+        <nav className='flex justify-end w-full list-none text-xl align-middle'>
             <div className='md:hidden'>
             <CiMenuKebab
             className='h-9 w-auto'
@@ -34,7 +37,7 @@ export default function Nav({user}: Session) {
             animate={{right: 0, opacity: 1}}
             exit={{right: -250, opacity: 0}}
             transition={{ease: "linear", duration: 0.4}}
-            className={`absolute bg-mylighttheme md:w-3/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-around p-10 z-50`}>
+            className={`absolute bg-mylighttheme md:w-3/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-around p-10 z-50 align-middle`}>
             <IoClose className='text-4xl' onClick={hideMenu} />
             <Link onClick={hideMenu} href='/' className='m-auto text-4xl'>Home</Link>
             <Link onClick={hideMenu} href='/reviews' className='m-auto text-4xl'>Reviews</Link>
@@ -50,29 +53,30 @@ export default function Nav({user}: Session) {
           )}       
       </AnimatePresence>
             </div>
-            <div className='md:flex justify-around w-3/6 hidden'>
-            <Link href='/' className={`hover:text-mytheme duration-1000 ${
+            <div className='md:flex justify-around w-3/6 hidden align-middle'>
+            <Link href='/' className={`hover:text-mytheme duration-1000 m-auto ${
                   pathname === '/'
                   ? "text-mytheme font-bold"
                   : "text-black"
                 }`}>Home</Link>
-            <Link href='/reviews' className={`hover:text-mytheme duration-1000 ${
+            <Link href='/reviews' className={`hover:text-mytheme duration-1000 m-auto ${
                   pathname === '/reviews'
                   ? "text-mytheme font-bold"
                   : "text-black"
                 }`}>Reviews</Link>
-            <Link href='/pricing' className={`hover:text-mytheme duration-1000 ${
+            <Link href='/pricing' className={`hover:text-mytheme duration-1000 m-auto ${
                   pathname === '/pricing'
                   ? "text-mytheme font-bold"
                   : "text-black"
                 }`}>Pricing </Link>
             {!user && (
-                 <li className='hover:text-mytheme duration-1000' onClick={() => signIn()}>Sign In</li>
+                 <li className='hover:text-mytheme duration-1000 m-auto' onClick={() => signIn()}>Sign In</li>
                 )}
             {user && (
-                   <li className='hover:text-mytheme duration-1000' onClick={() => signOut()}>Sign Out</li>
+                   <li className='hover:text-mytheme duration-1000 m-auto' onClick={() => signOut()}>Sign Out</li>
             )}
             </div>
         </nav>
+        </header>
     )
 }
