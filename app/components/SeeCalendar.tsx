@@ -58,7 +58,7 @@ export default function SeeCalendar() {
                     animate={{right: 0, opacity: 1}}
                     exit={{right: -250, opacity: 0}}
                     transition={{ease: "linear", duration: 0.4}}
-                    className={`fixed bg-mygray md:w-2/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-evenly p-10`}>
+                    className={`fixed bg-mygray md:w-2/6 w-[90vw] h-screen top-0 right-[-200px] flex flex-col justify-evenly p-10 opacity-70 backdrop-blur-lg`}>
                     <IoClose className='text-4xl' onClick={hideForm} />
                     <div className='m-auto gap-5 flex flex-col'>
                     <div className='flex gap-5'>
