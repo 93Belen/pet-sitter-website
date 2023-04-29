@@ -2,7 +2,7 @@
 
 import {IoClose} from 'react-icons/io5'
 import {motion, AnimatePresence} from 'framer-motion'
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 
 export default function AddReviewButton() {
     const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ export default function AddReviewButton() {
     const hideForm = () => {
         setShow(false)
       }
-      const reviewOnChange = (event) => {
+      const reviewOnChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setMyReview(event.target.value)
       }
       
