@@ -25,25 +25,11 @@ export default function Reviews() {
   }
 
 useEffect(() => {
-  getReviews().then((res) => setReviews(res))
+  getReviews().then((res) => {
+    console.log(res)
+    setReviews(res)})
 },[reviews])
 
-
-const deleteReview = async(idToDelete: string) => {
-  const sure = window.confirm('Are you sure you want to delete this review')
-  if(sure){
-    const res = await fetch('api/reviews/delete', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({idToDelete})
-    })
-    const jsonRes = await res.json()
-    return jsonRes
-  }
-  
-}
 
   const displayReviews = () => {
     const arr = [];
