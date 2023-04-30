@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from "components/prisma/seed";
 
-const prisma = new PrismaClient()
+
 // use `prisma` in your application to read and write data in your DB
 
 export async function GET() {

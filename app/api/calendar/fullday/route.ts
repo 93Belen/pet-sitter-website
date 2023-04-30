@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from "components/prisma/seed";
 
-const prisma = new PrismaClient()
+
 
 export async function GET() {
     const responseFromPrisma = await prisma.availability.findMany({
