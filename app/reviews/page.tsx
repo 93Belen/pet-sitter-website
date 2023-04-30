@@ -21,6 +21,7 @@ export default function Reviews() {
   const getReviews = async() => {
     const res = await fetch('api/reviews/getall')
     const jsonRes = await res.json()
+    console.log(jsonRes)
     return jsonRes;
   }
 
