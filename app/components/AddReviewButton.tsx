@@ -3,8 +3,11 @@
 import {IoClose} from 'react-icons/io5'
 import {motion, AnimatePresence} from 'framer-motion'
 import { useState, ChangeEvent } from 'react';
+import { useRenderStore } from 'components/state';
+
 
 export default function AddReviewButton() {
+    const store = useRenderStore();
     const [show, setShow] = useState(false);
     const [myReview, setMyReview] = useState('')
     
@@ -15,6 +18,7 @@ export default function AddReviewButton() {
         })
         const jsonRes = await res.json()
         setShow(false)
+        store.toggleRenderReviews()
         return jsonRes
     }
 

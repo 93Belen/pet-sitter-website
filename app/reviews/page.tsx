@@ -4,6 +4,7 @@
 import { Suspense, useEffect, useState } from "react";
 import {motion, AnimatePresence} from 'framer-motion'
 import Loading from "./loading";
+import { useRenderStore } from "components/state";
 
 
 type review = {
@@ -15,7 +16,8 @@ type review = {
 
 export default function Reviews() {
   const [reviews, setReviews] = useState<review[]>();
-
+  const store = useRenderStore()
+  const renderReviews = store.renderReviews;
 
 
   const getReviews = async() => {
@@ -29,7 +31,7 @@ useEffect(() => {
   getReviews().then((res) => {
     console.log(res)
     setReviews(res)})
-})
+},[renderReviews])
 
 
   const displayReviews = () => {

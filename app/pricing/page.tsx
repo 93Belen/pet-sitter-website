@@ -34,7 +34,7 @@ const updatePricing = () => {
 
 useEffect(() => {
   updatePricing()
-})
+},[])
 
 
 
