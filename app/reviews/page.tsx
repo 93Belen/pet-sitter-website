@@ -28,7 +28,7 @@ useEffect(() => {
   getReviews().then((res) => {
     console.log(res)
     setReviews(res)})
-},[reviews])
+},[])
 
 
   const displayReviews = () => {
