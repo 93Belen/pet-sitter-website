@@ -8,7 +8,7 @@ export async function GET() {
             status: 'Half Day'
         }
     });
-
+    console.log(responseFromPrisma)
     const serializedResponse = responseFromPrisma.map(avail => ({
         date: avail.date.toString(),
         status: avail.status

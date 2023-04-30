@@ -5,6 +5,6 @@ const prisma = new PrismaClient()
 
 export async function GET() {
     const responseFromPrisma = await prisma.review.findMany();
-
+    console.log(responseFromPrisma)
     return new Response(JSON.stringify(responseFromPrisma));
 }
